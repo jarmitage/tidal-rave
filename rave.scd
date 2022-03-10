@@ -5,7 +5,7 @@ thisProcess.openUDPPort(6789);
 ~raveSpeechBus = Bus.audio(s, numChannels:~dirt.numChannels);
 ~dirt.orbits[0].outBus = ~raveSpeechBus;
 ~raveSpeechCtl = RAVEControl(s,
-    modelFile:"/Users/jarm/Downloads/rave_rt_models/speech_realtime.ts"
+    modelFile:"/path/to/rave_rt_models/speech_realtime.ts"
 );
 ~raveSpeechSynth = {
     var in = InBus.ar(~raveSpeechBus, 2);
@@ -28,7 +28,7 @@ OSCFunc({ |msg| ~raveSpeechSynth.set(\raveSpeechTemp,msg[1]);}, "/rave/speech/te
 ~raveDarboukaBus = Bus.audio(s, numChannels:~dirt.numChannels);
 ~dirt.orbits[1].outBus = ~raveDarboukaBus;
 ~raveDarboukaCtl = RAVEControl(s,
-    modelFile:"/Users/jarm/Downloads/rave_rt_models/darbouka_realtime.ts"
+    modelFile:"/path/to/rave_rt_models/darbouka_realtime.ts"
 );
 ~raveDarboukaSynth = {
     var in = InBus.ar(~raveDarboukaBus, 2);
@@ -51,7 +51,7 @@ OSCFunc({ |msg| ~raveDarboukaSynth.set(\raveDarboukaTemp,msg[1]);}, "/rave/darbo
 ~raveFalloutBus = Bus.audio(s, numChannels:~dirt.numChannels);
 ~dirt.orbits[2].outBus = ~raveFalloutBus;
 ~raveFalloutCtl = RAVEControl(s,
-    modelFile:"/Users/jarm/Downloads/rave_rt_models/fallout_realtime.ts"
+    modelFile:"/path/to/rave_rt_models/fallout_realtime.ts"
 );
 ~raveFalloutSynth = {
     var in = InBus.ar(~raveFalloutBus, 2);
