@@ -1,0 +1,28 @@
+d "speech" -- speech_realtime.ts
+  $ note (cat [reven 18, roddi 12])
+  # s "arpy"
+  # rave "speech"
+  # ravemix 1
+  # ravetemp (rsinf 0 1 0.125)
+  # raveprior "<0>"
+  # orbit 0
+
+d "darbouka" -- darbouka_realtime.ts
+  $ fast "<1 [1 3] 1 [1 2]>"
+  $ s "[bd sn bd sn, hh*8]"
+  # rave "darbouka"
+  # ravemix 1
+  # ravetemp 1
+  # raveprior 0
+  # orbit 1
+
+d "fallout" -- fallout_realtime.ts
+  $ every 2 (|+ note 24)
+  $ fast "<1 [1 3] 1 [1 2] [1 1.5]>"
+  $ note (scale "major" $ cat [r 8, ri 12] - "<12 18 6>")
+  # sound "arpy"
+  # legato 1
+  # rave "fallout"
+  # ravemix 1
+  # ravetemp 0
+  # orbit 2
