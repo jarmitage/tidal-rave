@@ -1,0 +1,22 @@
+d "test" -- ll_test.ts
+  $ note (cat [reven 18, roddi 12])
+  # s "arpy"
+  # ll "test"
+  # llmix 1
+  # orbit 0
+
+d "test" -- ll_test.ts
+  $ fast "<1 [1 3] 1 [1 2]>"
+  $ s "[bd sn bd sn, hh*8]"
+  # ll "test"
+  # llmix 1
+  # orbit 1
+
+d "test" -- ll_test.ts
+  $ every 2 (|+ note 24)
+  $ fast "<1 [1 3] 1 [1 2] [1 1.5]>"
+  $ note (scale "major" $ cat [r 8, ri 12] - "<12 18 6>")
+  # sound "arpy"
+  # legato 1
+  # ll "test"
+  # orbit 2
