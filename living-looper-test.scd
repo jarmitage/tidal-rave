@@ -46,7 +46,7 @@ MIDIdef.noteOff(\softstep_off, { arg val, num, chan, src;
 	var in = (SoundIn.ar(0)*2).softclip;
     var out = //Limiter.ar(
        LivingLooper.new(
-			"~/Documents/git/pro/iil/artifacts/livinglooper/2022-11-04_ll_test/2022-11-04_ll-test.ts", 5,
+			"/Users/jack/Documents/git/pro/iil/artifacts/livinglooper/2022-11-04_ll_test/2022-11-04_ll-test.ts", 5,
 			in,
             \loop.kr(0), // loop index
 		).softclip;

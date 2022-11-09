@@ -25,10 +25,11 @@ llOSCSpecs = [OSC "/ll/{llmodel}/mix"   $ ArgList [("llmix", Nothing)],
 
 -- Living Looper Parameters
 :{
-let llmix   = pF "llmix"
+let ll      = pS "llmodel"
+    llmix   = pF "llmix"
     llgain  = pF "llgain"
-    llslot  = pI "llslot"
-    ll      = pS "llmodel"
+    _llslot  = pI "llslot"
+    -- llslot _s = once $ ll "test" # _llslot _s
 :}
 
 -- Living Looper PitchShift.ar

@@ -20,3 +20,46 @@ d "test" -- ll_test.ts
   # legato 1
   # ll "test"
   # orbit 2
+
+hushall = do -- hush all
+    hush
+    once $ ll "test" # llmix 0 
+
+llslot _s = once $ ll "test" # _llslot _s
+
+do
+  p1
+    -- . fa 8
+    -- . ev "<2 4>" (sl "<2 2.5 1.5>")
+    -- . str 4
+    -- . spaceOut ([0.1,0.2..1]++[1,0.9..0.1])
+    -- . iter 2
+    . struct (sl 4 $ "t(<3 7 5 9>,16) t*4 t(<9 11>,16) t*<3 8>")
+    -- . slice 8 "7 1 ~ 4 3 ~ 2"
+    $ stack [
+      n (68) # note ("<0 7 12>" + "[0 2]*4") -- (fa 4 "1 4") -- (r 128) 
+      # s "livinglooper" # legato 1 # _llslot 0 -- 1
+      -- ,n (r 128) # s "livinglooper" # legato 1 # _llslot 0 -- 2
+      -- ,n (r 128) # s "livinglooper" # legato 1 # _llslot 0 -- 3
+      -- ,n (r 128) # s "livinglooper" # legato 1 # _llslot 0 -- 4
+      -- ,n (r 128) # s "livinglooper" # legato 1 # _llslot 0 -- 5
+    ] # llgain 1 # ll "test" # llmix 1 # orbit 0 # llgain 1.6
+    # llpitch 1 0.002 0.001 -- ratio disperse time-disperse
+
+hushall
+
+p "ll1" -- ll_test.ts
+  $ fast "<1 [1 3] 1 [1 2]>"
+  $ s "[bd sn bd sn, hh*8]"
+  # ll "test"
+  # llmix 1
+  # orbit 0
+
+p "ll2" -- ll_test.ts
+  $ every 2 (|+ note 24)
+  $ fast "<1 [1 3] 1 [1 2] [1 1.5]>"
+  $ note (scale "major" $ cat [r 8, ri 12] - "<12 18 6>")
+  # sound "arpy"
+  # legato 1
+  # ll "test"
+  # orbit 0
