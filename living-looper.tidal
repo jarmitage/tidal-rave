@@ -63,3 +63,9 @@ p "ll2" -- ll_test.ts
   # legato 1
   # ll "test"
   # orbit 0
+
+
+
+ll4 l = orbit 4 # llslot (l = 1 ? 4 : 0)
+
+

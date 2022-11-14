@@ -1,14 +1,3 @@
-/*
-TODO
-
-This is copied from RAVE SuperCollider
-But since Living Looper has N input slots,
-It would make more sense from Tidal if each input slot was 
-routed to its own orbit?
-That would imply another layer after SuperDirt to handle that routing
-
-*/
-
 thisProcess.openUDPPort(6789);
 
 (
@@ -26,19 +15,28 @@ thisProcess.openUDPPort(6789);
     ));
     // out = SplayAz.ar(~dirt.numChannels, out);
     out = Mix.ar(out);
-    out = (in * (1 - \llMix.kr(1))) + (out * \llMix.kr(1));
+    out = (in * (1 - \llMix.kr(0))) + (out * \llMix.kr(0));
     out = out * \llGain.kr(1) * 0.8;
     out = out!~dirt.numChannels;
     out = PitchShift.ar(out, \llPitchGrain.kr(0.2), \llPitchRatio.kr(1.0), \llPitchDisperse.kr(0.003), \llPitchTimeDisperse.kr(0.003));
 }.play(outbus:~llOutBus);
-)
 
-(
 OSCFunc({ |msg| ~llSynth.set(\llMix,msg[1]);},               "/ll/test/mix",            nil);
 OSCFunc({ |msg| ~llSynth.set(\llGain,msg[1]);},              "/ll/test/gain",           nil);
-OSCFunc({ |msg| ~llSynth.set(\llLoopIndex,msg[1].postln);},  "/ll/test/loopindex",      nil);
+OSCFunc({ |msg| ~llSynth.set(\llLoopIndex,msg[1]);},         "/ll/test/loop",           nil);
 OSCFunc({ |msg| ~llSynth.set(\llPitchRatio,msg[1]);},        "/ll/test/pitch/ratio",    nil);
 OSCFunc({ |msg| ~llSynth.set(\llPitchGrain,msg[1]);},        "/ll/test/pitch/grain",    nil);
 OSCFunc({ |msg| ~llSynth.set(\llPitchDisperse,msg[1]);},     "/ll/test/pitch/disperse", nil);
 OSCFunc({ |msg| ~llSynth.set(\llPitchTimeDisperse,msg[1]);}, "/ll/test/pitch/time",     nil);
+
+// Sardine K:V
+// OSCFunc({ |msg| ~llSynth.set(\llMix,msg[2]);msg.postln;},               "/ll/test/mix",            nil);
+// OSCFunc({ |msg| ~llSynth.set(\llGain,msg[2]);msg.postln;},              "/ll/test/gain",           nil);
+// OSCFunc({ |msg| ~llSynth.set(\llLoopIndex,msg[2]);msg.postln;},         "/ll/test/loop",           nil);
+// OSCFunc({ |msg| ~llSynth.set(\llPitchRatio,msg[2]);},        "/ll/test/pitch/ratio",    nil);
+// OSCFunc({ |msg| ~llSynth.set(\llPitchGrain,msg[2]);},        "/ll/test/pitch/grain",    nil);
+// OSCFunc({ |msg| ~llSynth.set(\llPitchDisperse,msg[2]);},     "/ll/test/pitch/disperse", nil);
+// OSCFunc({ |msg| ~llSynth.set(\llPitchTimeDisperse,msg[2]);}, "/ll/test/pitch/time",     nil);
+
+// OSCFunc.trace(true);
 )
