@@ -3,8 +3,8 @@ d "speech" -- speech_realtime.ts
   # s "arpy"
   # rave "speech"
   # ravemix 1
-  # ravetemp (rsinf 0 1 0.125)
-  # raveprior "<0>"
+  # ravegain 1
+  # ravepitch 1 1 1 -- pitch effects
   # orbit 0
 
 d "darbouka" -- darbouka_realtime.ts
@@ -12,8 +12,7 @@ d "darbouka" -- darbouka_realtime.ts
   $ s "[bd sn bd sn, hh*8]"
   # rave "darbouka"
   # ravemix 1
-  # ravetemp 1
-  # raveprior 0
+  # ravegain 1
   # orbit 1
 
 d "fallout" -- fallout_realtime.ts
@@ -24,5 +23,5 @@ d "fallout" -- fallout_realtime.ts
   # legato 1
   # rave "fallout"
   # ravemix 1
-  # ravetemp 0
+  # ravegain 1
   # orbit 2
