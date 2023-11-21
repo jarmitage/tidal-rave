@@ -48,4 +48,4 @@ This is a simple way of using RAVE in SuperDirt and is quite limited.
 
 https://scsynth.org/t/experiences-with-rave-ugen/6398/32
 
-https://club.tidalcycles.org/t/the-routing-structure-of-a-dirt-orbit/3902/6
+https://club.tidalcycles.org/t/tidal-x-rave-realtime-audio-variational-autoencoder/4973
